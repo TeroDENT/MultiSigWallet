@@ -201,7 +201,7 @@
                 cb(e);
               }
               else {
-                wallet.txParams.gasLimit = Math.floor(block.gasLimit*0.9);
+                wallet.txParams.gasLimit = Math.min(txDefault.gasLimit,Math.floor(block.gasLimit*0.9));
                 cb(null, block.gasLimit);
               }
             }
